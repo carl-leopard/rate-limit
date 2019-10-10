@@ -389,4 +389,3 @@ func (limit Limit) durationFromTokens(tokens float64) time.Duration {
 func (limit Limit) tokensFromDuration(d time.Duration) float64 {
 	return d.Seconds() * float64(limit)
 }
-
