@@ -9,8 +9,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	rate "github.com/carl-leopard/rate-limit/src/rate"
-	gin "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
+
+	"github.com/carl-leopard/rate-limit/src/rate"
 )
 
 var (
@@ -76,6 +77,8 @@ func reserve() error {
 		return nil
 	}
 
+	//reset eventTime to last event
+	res.Cancel()
 	return errTooManyRequest
 }
 
